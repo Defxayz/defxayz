@@ -7,15 +7,15 @@
     <style>
         body {
             font-family: 'Courier New', monospace;
-            color: #00ff00;
+            color: #00ff00; /* Зелёный цвет текста */
             text-align: center;
             margin: 0;
-            overflow: hidden;
+            overflow: auto; /* Включаем скролл */
             position: relative;
-            background: linear-gradient(135deg, #0d0d0d, #001a00);
+            background: #000; /* Чёрный фон */
         }
         #video-bg {
-            position: absolute;
+            position: fixed; /* Фиксируем видео на фоне */
             top: 0;
             left: 0;
             width: 100%;
@@ -25,35 +25,40 @@
             opacity: 0.5;
         }
         .overlay {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, transparent, #0d0d0d 70%);
+            background: rgba(0, 0, 0, 0.8); /* Затемнение фона */
             z-index: 0;
         }
         .loader {
-            position: absolute;
+            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
             z-index: 2;
+            background: #1c1c1c; /* Тёмный фон плашки */
+            padding: 20px;
+            border: 2px solid #00ff00; /* Зелёная рамка */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
         }
         .loader-text {
-            font-size: 2rem;
-            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
-            animation: glow 2s infinite alternate;
+            font-size: 1.5rem;
+            color: #00ff00; /* Зелёный цвет текста */
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
             margin-bottom: 20px;
             opacity: 0;
             animation: fadeIn 2s ease forwards;
         }
         .progress-bar {
             width: 200px;
-            height: 10px;
-            background-color: #0d0d0d;
-            border: 2px solid #00ff00;
+            height: 20px;
+            background-color: #000; /* Чёрный фон плашки */
+            border: 2px solid #00ff00; /* Зелёная рамка */
             border-radius: 5px;
             overflow: hidden;
             margin: 0 auto;
@@ -66,7 +71,7 @@
             left: 0;
             width: 0;
             height: 100%;
-            background-color: #00ff00;
+            background-color: #00ff00; /* Зелёный цвет загрузки */
             animation: load 3s ease forwards;
         }
         @keyframes load {
@@ -90,8 +95,8 @@
         }
         h1 {
             font-size: 3rem;
-            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
-            animation: glow 2s infinite alternate;
+            color: #00ff00; /* Зелёный цвет текста */
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
             margin-top: 20px;
             position: relative;
             z-index: 1;
@@ -102,8 +107,8 @@
             margin: 20px auto;
             padding: 15px;
             font-size: 1.2rem;
-            color: #0d0d0d;
-            background-color: #00ff00;
+            color: #000; /* Чёрный цвет текста */
+            background-color: #00ff00; /* Зелёный фон */
             border: 2px solid #00ff00;
             border-radius: 10px;
             cursor: pointer;
@@ -131,7 +136,7 @@
             transform: translate(-50%, -50%) scale(1);
         }
         .button:hover {
-            background-color: #0d0d0d;
+            background-color: #000;
             color: #00ff00;
             box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
             transform: scale(1.05);
@@ -143,7 +148,7 @@
         .content {
             display: none;
             padding: 20px;
-            background-color: rgba(13, 13, 13, 0.9);
+            background-color: rgba(28, 28, 28, 0.9); /* Тёмный фон */
             border-radius: 10px;
             margin-top: 20px;
             border: 2px solid #00ff00;
@@ -154,27 +159,29 @@
         }
         .content h2 {
             font-size: 2rem;
+            color: #00ff00;
             text-shadow: 0 0 10px #00ff00;
             margin-bottom: 15px;
         }
         .content p {
             font-size: 1.1rem;
+            color: #fff; /* Белый цвет текста */
             line-height: 1.6;
             margin: 10px 0;
         }
         a.button {
             text-decoration: none;
-            color: #0d0d0d;
+            color: #000;
         }
         a.button:hover {
             color: #00ff00;
         }
         @keyframes glow {
             from {
-                text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+                text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
             }
             to {
-                text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 60px #00ff00;
+                text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
             }
         }
         @keyframes fadeIn {
